@@ -1,0 +1,62 @@
+body {
+    overflow-y: auto;
+}
+
+.profile_page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_page button {
+    margin: 5px 0 5px 0;
+    height: 50px;
+    background-color: white;
+    border-radius: 100rem;
+}
+
+.profile_page input {
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.update_profile_form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.profiletitle {
+    text-align: center;
+    font-size: 3rem;
+    margin: 20px 0 20px 0;
+}
+
+.hr {
+    border: 1px solid black;
+    margin: 10px 0 10px;
+}
+
+.username,
+.password {
+    font-size: 1rem;
+    margin: 10px 0 10px 0;
+}
+
+.update_profile,
+.go_home {
+    font-size: 1rem;
+    width: 100%;
+    background-color: rgb(13, 146, 244) !important;
+    color: white;
+    margin-top: 5px !important;
+    border: none;
+}
+
+.update_profile:hover,
+.go_home:hover {
+    background-color: rgb(60, 60, 255) !important;
+}

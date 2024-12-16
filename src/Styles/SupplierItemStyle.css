@@ -1,0 +1,92 @@
+.supplier_item {
+    width: 96%;
+    height: 80px;
+    padding: 0 20px 0 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.supplier_item span {
+    font-size: 1.2rem;
+}
+
+.supplier_name{
+    flex: 4;
+}
+
+.supplier_contactinfo{
+    flex: 5;
+}
+
+.supplier_item button {
+    flex: 1;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.592);
+    height: 40px;
+    width: 80px;
+    font-size: 1rem;
+}
+
+.supplier_item button:hover {
+    background-color: rgb(255, 2, 2);
+}
+
+
+.delete_supplier_popup_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.delete_supplier_popup_content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+}
+
+.delete_supplier_popup_content h3 {
+    margin-bottom: 10px;
+}
+
+.delete_supplier_popup_content p {
+    margin-bottom: 20px;
+}
+
+.delete_supplier_popup_actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete_supplier_popup_actions button {
+    margin: 0 25px 0 25px;
+    width: 100px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete_supplier_popup_actions button:first-child {
+    background-color: rgb(244, 48, 48);
+    color: white;
+}
+
+.delete_supplier_popup_actions button:last-child {
+    background-color: rgb(153, 153, 153);
+    color: black;
+}
