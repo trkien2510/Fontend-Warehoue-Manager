@@ -15,7 +15,7 @@ export async function getSupplier() {
 
     const response = await fetch("http://localhost:8080/api/supplier", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     return result;
@@ -39,7 +39,7 @@ export async function createSupplier(name, contactInfo) {
 
     const response = await fetch("http://localhost:8080/api/supplier", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     return result;
@@ -63,7 +63,7 @@ export async function deleteSupplier(name) {
 
     const response = await fetch("http://localhost:8080/api/supplier", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     return result;

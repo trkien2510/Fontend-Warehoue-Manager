@@ -15,7 +15,7 @@ export async function getCategory() {
 
     const response = await fetch("http://localhost:8080/api/category", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     console.log(result)
@@ -41,7 +41,7 @@ export async function createCategory(name) {
 
     const response = await fetch("http://localhost:8080/api/category", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     console.log(result)
@@ -66,7 +66,7 @@ export async function deleteCategory(name) {
 
     const response = await fetch("http://localhost:8080/api/category", requestOptions);
     if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch');
     }
     const result = await response.json();
     console.log(result)

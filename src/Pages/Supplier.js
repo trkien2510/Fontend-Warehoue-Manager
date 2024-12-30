@@ -47,7 +47,7 @@ const Supplier = () => {
             await createAuditlog(`đã xóa nhà cung cấp: ${name}`)
             setSupplier(supplier.filter((category) => category.name !== name));
         } catch (error) {
-            console.error("Error deleting category:", error);
+            alert("Đang tồn tại sản phẩm có nhà cung cấp này")
         }
     };
 

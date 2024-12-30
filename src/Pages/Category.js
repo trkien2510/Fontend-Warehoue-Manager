@@ -46,7 +46,7 @@ const Category = () => {
             await createAuditlog(`xóa loại sản phẩm: ${name}`);
             setCategories(categories.filter((category) => category.name !== name));
         } catch (error) {
-            console.error("Error creating category:", error);
+            alert("Đang tồn tại sản phẩm có loại này")
         }
     };
 
