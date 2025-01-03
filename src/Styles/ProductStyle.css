@@ -42,17 +42,22 @@
     flex-direction: row;
 }
 
+.filter_sort,
 .filter_price,
 .filter_category,
-.filter_supplier {
+.filter_supplier,
+.filter_quantity {
     flex: 1;
     font-size: 1.2rem;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.filter_sort select,
 .filter_price select,
 .filter_category select,
-.filter_supplier select {
+.filter_supplier select,
+.filter_quantity select {
     width: 100px;
     height: 40px;
     font-size: 1rem;

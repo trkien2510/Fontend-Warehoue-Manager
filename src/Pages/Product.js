@@ -12,8 +12,11 @@ const Product = () => {
     const [categories, setCategories] = useState([]);
     const [suppliers, setSuppliers] = useState([]);
     const [products, setProducts] = useState([]);
+    const [sortOrder, setSortOrder] = useState("Tất cả");
     const [selectedCategory, setSelectedCategory] = useState("Tất cả");
     const [selectedSupplier, setSelectedSupplier] = useState("Tất cả");
+    const [selectedPrice, setSelectedPrice] = useState("Tất cả");
+    const [selectedQuantity, setSelectedQuantity] = useState("Tất cả");
     const [searchTerm, setSearchTerm] = useState("");
     const [showCreatePopup, setShowCreatePopup] = useState(false);
 
@@ -77,8 +80,34 @@ const Product = () => {
 
             const matchesName = product.name.toLowerCase().includes(searchTerm.toLowerCase());
 
-            return matchesCategory && matchesSupplier && matchesName;
-        });
+            const matchesPrice = (() => {
+                if (selectedPrice === "Tất cả") return true;
+                if (selectedPrice === "<1000000") return product.price < 1000000;
+                if (selectedPrice === "1000000-5000000") return product.price >= 1000000 && product.price <= 5000000;
+                if (selectedPrice === ">5000000") return product.price > 5000000;
+                return true;
+            })();
+
+            const matchesQuantity = (() => {
+                if (selectedQuantity === "Tất cả") return true;
+                if (selectedQuantity === "0") return product.quantity === 0;
+                if (selectedQuantity === "0-10") return product.quantity > 0 && product.quantity <= 10;
+                if (selectedQuantity === "10-50") return product.quantity > 10 && product.quantity <= 50;
+                if (selectedQuantity === ">50") return product.quantity > 50;
+                return true;
+            })();
+
+            return matchesCategory && matchesSupplier && matchesName && matchesPrice && matchesQuantity;
+        }
+        )
+        .sort((a, b) => {
+            if (sortOrder === "Tất cả") return 0; // Không sắp xếp
+            if (sortOrder === "A-Z") return a.name.localeCompare(b.name); // Sắp xếp A-Z
+            if (sortOrder === "Z-A") return b.name.localeCompare(a.name); // Sắp xếp Z-A
+            return 0;
+        }
+    );
+
 
     return (
         <div className='product_component'>
@@ -95,6 +124,15 @@ const Product = () => {
             </div>
 
             <div className='filter'>
+                <span className='filter_sort'>
+                    <span>Sắp xếp </span>
+                    <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                        <option value="Tất cả">Tất cả</option>
+                        <option value="A-Z">A-Z</option>
+                        <option value="Z-A">Z-A</option>
+                    </select>
+                </span>
+
                 <span className='filter_category'>
                     <span>Loại </span>
                     <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
@@ -117,6 +155,26 @@ const Product = () => {
                         ))}
                     </select>
                 </span>
+                <span className='filter_price'>
+                    <span>Giá </span>
+                    <select value={selectedPrice} onChange={(e) => setSelectedPrice(e.target.value)}>
+                        <option value="Tất cả">Tất cả</option>
+                        <option value="<1000000">Dưới 1,000,000</option>
+                        <option value="1000000-5000000">1,000,000 - 5,000,000</option>
+                        <option value=">5000000">Trên 5,000,000</option>
+                    </select>
+                </span>
+                <span className='filter_quantity'>
+                    <span>Số lượng </span>
+                    <select value={selectedQuantity} onChange={(e) => setSelectedQuantity(e.target.value)}>
+                        <option value="Tất cả">Tất cả</option>
+                        <option value="0">0</option>
+                        <option value="0-10">0 - 10</option>
+                        <option value="10-50">10 - 50</option>
+                        <option value=">50">Trên 50</option>
+                    </select>
+                </span>
+
             </div>
 
             <div className='product_list'>
